@@ -1,0 +1,276 @@
+/* 모든 요소의 박스 크기 계산 방식 설정 */
+* { 
+    box-sizing: border-box;
+}
+
+/* 행(row) 처리: 행 내부 요소 정렬 및 정리 */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* 열(col) 처리: 반응형 디자인 */
+[class*="col-"] {
+    float: left;
+}
+
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+
+/* 화면 방향에 따른 레이아웃 */
+@media only screen and (orientation: landscape) {
+    /* 가로 모드: 각 열이 화면의 49.5% 너비 차지 */
+    [class*="col-"] {
+        width: 49.5%;
+        padding-left: 1vw;
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    /* 세로 모드: 각 열이 화면 전체 너비 차지 */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+/* 상단 여백 */
+.topspacer {
+    height: 1vmin;
+}
+
+/* 첫 번째 테이블 (헤더) 스타일 */
+.centeredth {
+    width: 25%;
+    text-align: center;
+}
+
+.location {
+    text-align: center;
+    width: 50%;
+}
+
+.imglogo {
+    width: 4vmax; /* 반응형 크기 설정 */
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3vw;
+    letter-spacing: 0.5vw;
+}
+
+.date {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vw;
+    letter-spacing: 0.125vw;
+}
+
+/* PM 셀 스타일 */
+.pmcell {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3vmin;
+    border: solid black 2px;
+    padding: 2vmin 1vw; /* 상하 2vmin, 좌우 1vw 여백 */
+}
+
+/* 헤더 테이블 */
+.headtable {
+    width: 100%;
+}
+
+/* 온도 셀 스타일 */
+.tempcell {
+    vertical-align: middle;
+    border: solid black 2px;
+    background-color: #dddddd;
+    padding: 2vmin 0;
+}
+
+.temp {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3vmin;
+}
+
+/* 전체 차트 */
+.fullchart {
+    width: 30vw;
+}
+
+/* 아이콘 스타일 */
+.faceicon {
+    max-width: 11vmin;
+}
+
+.smfaceicon {
+    max-width: 12vmin;
+}
+
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2min;
+    line-height: 0;
+}
+
+/* 주요 테이블 스타일 */
+.toptable {
+    width: 100%;
+    border-collapse: collapse;
+    border: solid black 2px;
+}
+
+.conditionstable {
+    width: 100%;
+    border-collapse: collapse;
+    border: solid black 2px;
+}
+
+.graphstable {
+    width: 90%;
+    border-collapse: collapse;
+    border: solid black 2px;
+}
+
+/* 현재 상태 스타일 */
+.currentconditions {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3vmin; /* 글씨 크기 통일 */
+    text-align: center;
+    vertical-align: middle;
+}
+
+.currentcell {
+    border: solid black 2px;
+}
+
+.currenttext {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3vmin;
+}
+
+/* 차트 셀 */
+.chartcell {
+    vertical-align: top;
+    background-color: aliceblue;
+    border: solid black 2px;
+    max-width: 32vw;
+}
+
+/* 등급 셀 */
+.gradecell {
+    background-color: lightgrey;
+    font-size: 3vmin;
+    text-align: center;
+    border: solid black 2px;
+    padding: 0.5vmin 1vw;
+}
+
+/* 그래프 이미지 */
+.graphimg {
+    width: 90%;
+}
+
+.graphimg2 {
+    width: 100%;
+    max-width: 20vw;
+    max-height: 17vh;
+}
+
+/* 현재 상태 셀 */
+.current {
+    background-color: lightgrey;
+    font-size: 3vmin;
+    text-align: center;
+    border: solid black 2px;
+    padding: 1vmin 0;
+}
+
+.currenthead {
+    background-color: lightgrey;
+    font-size: 3vmin; /* 글씨 크기 통일 */
+    text-align: center;
+    border: solid black 2px;
+}
+
+/* 레전드 셀 */
+.legendcell {
+    background-color: lightgrey;
+    text-align: center;
+    font-size: 3vmin; /* Current Conditions와 동일한 크기 */
+    vertical-align: middle;
+    min-height: 8em; /* 동일 높이 설정 */
+}
+
+.legend {
+    background-color: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3vmin; /* Current Conditions와 동일한 크기 */
+    text-align: center;
+    padding: 0.5vmin;
+}
+
+/* 빈 셀 */
+.blank {
+    background-color: lightgrey;
+    border-collapse: collapse;
+}
+
+/* 정책 스타일 */
+.policy {
+    background-color: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3vmin; /* Current Conditions와 동일한 크기 */
+    text-align: center;
+    padding: 0.5vmin 0;
+}
+
+/* 상태별 색상 */
+.good {
+    background-color: skyblue;
+    max-width: 25vw;
+    font-size: 1.75vmin;
+    padding: 2vmin;
+    border: solid black 2px;
+}
+
+.moderate {
+    background-color: lightgreen;
+    max-width: 25vw;
+    font-size: 1.75vmin;
+    padding: 2vmin;
+    border: solid black 2px;
+}
+
+.unhealthy {
+    background-color: gold;
+    max-width: 25vw;
+    font-size: 1.75vmin;
+    padding: 2vmin;
+    border: solid black 2px;
+}
+
+.veryunhealthy {
+    background-color: indianred;
+    max-width: 25vw;
+    font-size: 1.75vmin;
+    padding: 2vmin;
+    border: solid black 2px;
+}
+
+/* 업데이트 정보 */
+h6 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.75vmin;
+}
+
+.lastupdate {
+    clear: both;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vmin;
+    color: white;
+    line-height: 1;
+}

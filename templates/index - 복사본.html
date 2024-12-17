@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Monitor</title>
+    <link rel='stylesheet' href='/static/scstyle.css'>
+    <link rel="icon" href="/static/favicon.ico">
+
+    <script src="/static/js/main.js?v=1.0.0"></script>
+    <link rel="stylesheet" href="/static/scstyle.css?v=1.0.0">
+
+    <style>
+        .good { background-color: #a8e05f; }
+        .moderate { background-color: #fdd64b; }
+        .unhealthy { background-color: #ff9b57; }
+        .veryunhealthy { background-color: #fe6a69; }
+        .imglogo, .smfaceicon, .faceicon { width: 20%; height: auto; } /* Reduce size to 1/5 */
+        table { background-color: white; color: black; border: 1px solid black; border-collapse: collapse; } /* Add black borders */
+        th, td { padding: 8px; border: 1px solid black; } /* Add borders to cells */
+        .container { display: flex; justify-content: space-between; }
+        .container .col { width: 50%; }
+        .headtable { width: 50%; margin: 0 auto; background-color: transparent; border: none; }
+        .title { font-size: 3em; } /* Make SC Air Quality 1 text 3x larger */
+    </style>
+</head>
+<body>
+    <!-- 첫 번째 테이블 -->
+<table class="table-common headtable">
+    <tr>
+        <th class="centeredth"><img class="imglogo" src="/static/logo.png"></th>
+        <th class="location">
+            <div class="title">SC Air Quality 1</div>
+            <div class="date" id="time"></div>
+        </th>
+        <th class="centeredth"><img class="imglogo" src="/static/shield.png"></th>
+    </tr>
+</table>
+
+    <div class="topspacer"></div>
+
+ <!-- 두 번째 테이블 -->
+
+    <div class="container">
+        <div class="col" id="left">
+            <table class="toptable">
+                <tr>
+                    <th class="legendcell" colspan="4"><div class="legend">Current Conditions</div></th>
+                </tr>
+                <tr>
+                    <th class="pmcell" id="pmcell25a" colspan="2"><div id="pm25a">PM2.5: Loading...</div></th>
+                    <th class="pmcell" id="pmcell10a" colspan="2"><div id="pm10a">PM10: Loading...</div></th>
+                </tr>
+                <tr>
+                    <th class="current" colspan="2"><div class="temp" id="temperature">Temperature: Loading...</div></th>
+                    <th class="current" colspan="2"><div class="temp" id="humidity">Humidity: Loading...</div></th>
+                </tr>
+                <tr>
+                    <th class="currenthead" id="currentheader" colspan="2"><img class="faceicon" id="currentface" src="/static/moderateblack.png"></th>
+                    <th class="current" colspan="2"><div class="currenttext" id="currenttext">Loading...</div></th>
+                </tr>
+                <tr>
+                    <th class="legendcell" colspan="4"><div class="legend">Current Conditions Policy</div></th>
+                </tr>
+                <tr>
+                    <th class="gradecell" id="pk_2" rowspan="2">Pre-K to<br>Grade 2</th>
+                    <th class="current" id="pk_2recess">Recess</th>
+                    <th class="current" colspan="2"><div id="currentpkrecess">Outside</div></th>
+                </tr>
+                <tr>
+                    <th class="current" id="pk_2academics">Academics</th>
+                    <th class="current" colspan="2"><div id="currentpkacademics">Outside</div></th>
+                </tr>
+                <tr>
+                    <th class="gradecell" id="g3_5" rowspan="2">Grade 3 to<br>Grade 5</th>
+                    <th class="current">Recess</th>
+                    <th class="current" colspan="2"><div id="currentg3_5recess">Outside</div></th>
+                </tr>
+                <tr>
+                    <th class="current">Academics</th>
+                    <th class="current" colspan="2"><div id="currentg3_5academics">Outside</div></th>
+                </tr>
+            </table>  
+        </div>
+       <!-- 세 번째 테이블 -->
+        <div class="col" id="right">
+            <table class="conditionstable">
+                <tr>
+                    <th class="legend" colspan="4"><div class="legend">Legend</div></th>
+                </tr>
+                <tr>
+                    <th class="good"><img class="smfaceicon" src="/static/goodblack.png"><br>Good<br>PM2.5: 0-15<br>PM10: 0-30<br>&nbsp;</th>
+                    <th class="moderate"><img class="smfaceicon" src="/static/moderateblack.png"><br>Moderate<br>PM2.5: 16-35<br>PM10: 31-80<br>&nbsp;</th>
+                    <th class="unhealthy"><img class="smfaceicon" src="/static/unhealthyblack.png"><br>Unhealthy<br>PM2.5: 36-75<br>PM10: 81-150<br>&nbsp;</th>
+                    <th class="veryunhealthy"><img class="smfaceicon" src="/static/veryunhealthyblack.png"><br>Very Unhealthy<br>PM2.5: 75+<br>PM10: 150+<br>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th class="legend" colspan="4"><div class="policy">To see the Air Quality Policy, <a href="SeoulCampusOutdoorAirQualityPolicy2022-07.jpg" target="_blank">Click here.</a></div></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="lastupdate" id="lastpmupdate"></div><div class="lastupdate" id="lasttempupdate"></div>
+</body>
+</html>

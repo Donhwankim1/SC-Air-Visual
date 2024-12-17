@@ -1,0 +1,15 @@
+├── main.py               # Flask 백엔드
+├── templates/
+│   └── index.html        # HTML 템플릿
+├── static/
+│   ├── scstyle.css       # CSS 스타일
+│   ├── js/
+│   │   └── main.js       # JavaScript 파일
+│   └── images/
+│       ├── logo.png
+│       ├── shield.png
+│       ├── goodblack.png
+│       ├── moderateblack.png
+│       ├── unhealthyblack.png
+│       └── veryunhealthyblack.png
+└── requirements.txt      # 필요 패키지 리스트
